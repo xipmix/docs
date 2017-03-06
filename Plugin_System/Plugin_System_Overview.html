@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Plugin System Overview - Volumio Documentation</title>
+    <meta name="description" content="The Audiophile Music Player" />
+    <meta name="author" content="Michelangelo Guarise">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/volumiodocs.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<div class="container-fluid fluid-height wrapper">
+    <div class="navbar navbar-static-top hidden-print">
+        <div class="container-fluid">
+            <a class="brand navbar-brand pull-left" href="../index.html">Volumio Documentation</a>
+
+    <div class="navbar-right navbar-form search">
+        <i class="glyphicon glyphicon-search search__icon">&nbsp;</i>
+        <input type="search" id="tipue_search_input" class="form-control search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+        </div>
+    </div>
+    <div class="row columns content">
+        <div class="left-column article-tree col-sm-3 hidden-print">
+            <!-- For Mobile -->
+            <div class="responsive-collapse">
+                <button type="button" class="btn btn-sidebar" id="menu-spinner-button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="sub-nav-collapse" class="sub-nav-collapse">
+                <!-- Navigation -->
+                <ul class='nav nav-list'><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>User Manual</a><ul class='nav nav-list'><li class=''><a href="../User_Manual/Quick_Start_Guide.html">Quick Start Guide</a></li><li class=''><a href="../User_Manual/System_updates.html">System updates</a></li><li class=''><a href="../User_Manual/Volume_Control_and_audio_quality.html">Volume Control and audio quality</a></li><li class=''><a href="../User_Manual/Configure_MPD_Clients_for_albumart.html">Configure MPD Clients for albumart</a></li><li class=''><a href="../User_Manual/Sending_logs_for_troubleshooting.html">Sending logs for troubleshooting</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Development How To</a><ul class='nav nav-list'><li class=''><a href="../Development_How_To/Overview.html">Overview</a></li><li class=''><a href="../Development_How_To/System_Architecture.html">System Architecture</a></li><li class=''><a href="../Development_How_To/Set_up_a_development_environment.html">Set up a development environment</a></li><li class=''><a href="../Development_How_To/Debugging.html">Debugging</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>API</a><ul class='nav nav-list'><li class=''><a href="../API/API_Overview.html">API Overview</a></li><li class=''><a href="../API/WebSocket_APIs.html">WebSocket APIs</a></li><li class=''><a href="../API/UI_Configuration_Pages.html">UI Configuration Pages</a></li><li class=''><a href="../API/REST_API.html">REST API</a></li></ul></li><li class='open has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Plugin System</a><ul class='nav nav-list'><li class='active'><a href="../Plugin_System/Plugin_System_Overview.html">Plugin System Overview</a></li><li class=''><a href="../Plugin_System/Writing_A_Plugin.html">Writing A Plugin</a></li><li class=''><a href="../Plugin_System/Index.js.html">Index.js</a></li><li class=''><a href="../Plugin_System/UI_Configuration_Pages.html">UI Configuration Pages</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>I2S DACs</a><ul class='nav nav-list'><li class=''><a href="../I2S_DACs/Adding_Compatibility_to_your_DAC.html">Adding Compatibility to your DAC</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Good to Knows</a><ul class='nav nav-list'><li class=''><a href="../Good_to_Knows/Markdown_Cheatsheet.html">Markdown Cheatsheet</a></li><li class=''><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Mounting an NFS Share</a></li><li class=''><a href="../Good_to_Knows/Contribute_to_this_Doc.html">Contribute to this Doc</a></li><li class=''><a href="../Good_to_Knows/Connection_Outside_LAN.html">Connection Outside LAN</a></li><li class=''><a href="../Good_to_Knows/Command_Line_Client.html">Command Line Client</a></li></ul></li></ul>
+
+                <div class="sidebar-links">
+                    
+                        <!-- Links -->
+                        <a href="https://volumio.org" target="_blank">Home</a><br><a href="https://volumio.org/get-started" target="_blank">Download</a><br><a href="https://volumio.org/forum" target="_blank">Forum</a><br><a href="https://gitter.im/volumio/Volumio2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">Live Chat</a><br><a href="https://github.com/volumio" target="_blank">GitHub Repo</a><br><a href="https://volumio.github.io/docs/Good_to_Knows/Contribute_to_this_Doc.html" target="_blank">Improve this documentation</a><br>
+                        <div id="toggleCodeBlock">
+                                                    <a id="toggleCodeBlockBtn" href="#" onclick="toggleCodeBlocks();">Show Code Blocks Inline</a><br>
+                                                </div>
+
+                        <!-- Twitter -->
+                                                    <div class="twitter">
+                                <hr/>
+                                <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=volumio&amp;show_count=false"></iframe>
+                            </div>
+                        
+                        <hr/>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-column  content-area col-sm-9">
+
+            <div class="content-page">
+                                    <div id="tipue_search_content" style="display:none"></div>
+                
+                <div class="doc_content">
+                    <article>
+            <div class="page-header">
+            <h1>Plugin System Overview</h1>
+        </div>
+    
+    <h3 id="page_Introduction">Introduction</h3>
+<p>Volumio2 introduces the concept of plugins to expand its functionality, and allow an easy sharing of the tweaks and improvements usually generated by the community. We've worked hard to create a standardized layout to make it easier to develop any kind of plugin. If you feel that your particular use case is not covered, please open an issue or discussion at the plugins repo:</p>
+<p><a href="https://github.com/volumio/volumio-plugins">https://github.com/volumio/volumio-plugins</a></p>
+<h3 id="page_What_is_plugin">What is plugin ?</h3>
+<p>A plugin is meant to add one specific functionality. It is provided as zip file which contains all needed files for it to work, either directly included in the zip file or available via a an install script that will download them autoatically.
+Plugins can be installed via Volumio's UI, by selecting the &quot;Plugins&quot; menu entry. From there you will be able to browse the Online Plugin Repository, or upload a plugin .zip file from your disk if not in the list.</p>
+<p>Plugins are located under</p>
+<pre><code>/data/plugins/
+</code></pre>
+<p>And they are organized in subfolder per categories. When installing plugin, a folder is created in:</p>
+<pre><code>/data/plugins/mycategory/myplugins
+</code></pre>
+<p>All plugins related files (extracted from zip and resulting from install sh script will be found here).</p>
+<h3 id="page_Existing_Plugin_Categories">Existing Plugin Categories</h3>
+<p>PLEASE NOTE: Categories name must be lowercase and separated by _ .</p>
+<h4 id="page_audio_interface">audio_interface</h4>
+<p>This typically collects plugins that add an audio interface, aka an external and not browsable music source. Typical examples are:</p>
+<ul>
+<li>Airplay</li>
+<li>UpNp</li>
+<li>Bluetooth</li>
+</ul>
+<h5 id="page_music_service">music_service</h5>
+<p>Those are browsable music sources, typically:</p>
+<ul>
+<li>MPD (for local files)</li>
+<li>Webradios Directories</li>
+<li>Streaming Services like Spotify</li>
+</ul>
+<h4 id="page_miscellanea">miscellanea</h4>
+<p>Those plugins that are too general purpose to classify. Furthermore they are meant to work as standalone units, and they don't require interaction with other plugins. Examples:</p>
+<ul>
+<li>Appearance Plugins</li>
+</ul>
+<h4 id="page_system_controller">system_controller</h4>
+<p>Those are usually core-plugins, meant to handle vital parts of Volumio.</p>
+<ul>
+<li>Networking</li>
+<li>Network Attached Storage</li>
+<li>Core updater services</li>
+</ul>
+<h4 id="page_user_interface">user_interface</h4>
+<p>Those plugins are meant to allow external communication to Volumio. Developing a new one will be useful to add API Rest Capability, or to extend Volumio interoperability with third party apps and controllers. Some examples:</p>
+<ul>
+<li>MPD Client Protocol emulation</li>
+<li>Squeeze Box emulation</li>
+<li>Phisical button controller</li>
+</ul>
+<h3 id="page_What_features_can_be_added">What features can be added</h3>
+<p>This features could be miscellaneous, such as new online music provider, new radio stream, management of the GPIO (for supported devices), various DSP, display and plenty of other useful things ! The only limitation is your imagination !</p>
+<p>A good way to understand how is made a plugin, is to browse /volumio/app/plugins folder and /data/plugins folder. You’ll find inspiration for your own dev !</p>
+<h3 id="page_Plugin_Configuration_files">Plugin Configuration files</h3>
+<p>While first start, Volumio will create a folder that contains saved parameter in a config.json stored in:</p>
+<pre><code>/data/configuration/mycategory/myplugins
+</code></pre>
+<h3 id="page_The_pluginsjson_file">The plugins.json file</h3>
+<p>The plugins.json file stores the status of core (found in /volumio/app/plugins/plugins.json folder) and extra (found in /data/plugins/plugins.json ) plugins.</p>
+<p><strong>IMPORTANT</strong> : If you create a new plugin MANUALLY, you MUST add a plugin reference to plugins.json files (in /data/plugins/plugins.json). If such reference is not found, volumio will automatically delete your plugin folder.</p>
+<p>The plugins json contains informations on plugins status:</p>
+<ul>
+<li>Enabled, which can be true or false</li>
+<li>Started, which can be true or false</li>
+</ul>
+<p>Add your information under your plugin relevant category. For example, if I'm adding a music_service plugin called &quot;google_music&quot;, the relevant section will look like</p>
+<pre><code>{
+  &quot;music_service&quot;: {
+    &quot;google_music&quot;: {
+      &quot;enabled&quot;: {
+        &quot;type&quot;: &quot;boolean&quot;,
+        &quot;value&quot;: true
+      },
+      &quot;status&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;value&quot;: &quot;STARTED&quot;
+      }
+    },
+    ...
+</code></pre>
+
+        <nav>
+        <ul class="pager">
+            <li><a href="../API/REST_API.html">Previous</a></li>            <li><a href="../Plugin_System/Writing_A_Plugin.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46374275-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch_set.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.min.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(document).ready(function() {
+                $('#tipue_search_input').tipuesearch({
+                    'show': 10,
+                    'mode': 'json',
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

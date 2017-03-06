@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Contribute to this Doc - Volumio Documentation</title>
+    <meta name="description" content="The Audiophile Music Player" />
+    <meta name="author" content="Michelangelo Guarise">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/volumiodocs.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<div class="container-fluid fluid-height wrapper">
+    <div class="navbar navbar-static-top hidden-print">
+        <div class="container-fluid">
+            <a class="brand navbar-brand pull-left" href="../index.html">Volumio Documentation</a>
+
+    <div class="navbar-right navbar-form search">
+        <i class="glyphicon glyphicon-search search__icon">&nbsp;</i>
+        <input type="search" id="tipue_search_input" class="form-control search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+        </div>
+    </div>
+    <div class="row columns content">
+        <div class="left-column article-tree col-sm-3 hidden-print">
+            <!-- For Mobile -->
+            <div class="responsive-collapse">
+                <button type="button" class="btn btn-sidebar" id="menu-spinner-button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="sub-nav-collapse" class="sub-nav-collapse">
+                <!-- Navigation -->
+                <ul class='nav nav-list'><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>User Manual</a><ul class='nav nav-list'><li class=''><a href="../User_Manual/Quick_Start_Guide.html">Quick Start Guide</a></li><li class=''><a href="../User_Manual/System_updates.html">System updates</a></li><li class=''><a href="../User_Manual/Volume_Control_and_audio_quality.html">Volume Control and audio quality</a></li><li class=''><a href="../User_Manual/Configure_MPD_Clients_for_albumart.html">Configure MPD Clients for albumart</a></li><li class=''><a href="../User_Manual/Sending_logs_for_troubleshooting.html">Sending logs for troubleshooting</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Development How To</a><ul class='nav nav-list'><li class=''><a href="../Development_How_To/Overview.html">Overview</a></li><li class=''><a href="../Development_How_To/System_Architecture.html">System Architecture</a></li><li class=''><a href="../Development_How_To/Set_up_a_development_environment.html">Set up a development environment</a></li><li class=''><a href="../Development_How_To/Debugging.html">Debugging</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>API</a><ul class='nav nav-list'><li class=''><a href="../API/API_Overview.html">API Overview</a></li><li class=''><a href="../API/WebSocket_APIs.html">WebSocket APIs</a></li><li class=''><a href="../API/UI_Configuration_Pages.html">UI Configuration Pages</a></li><li class=''><a href="../API/REST_API.html">REST API</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Plugin System</a><ul class='nav nav-list'><li class=''><a href="../Plugin_System/Plugin_System_Overview.html">Plugin System Overview</a></li><li class=''><a href="../Plugin_System/Writing_A_Plugin.html">Writing A Plugin</a></li><li class=''><a href="../Plugin_System/Index.js.html">Index.js</a></li><li class=''><a href="../Plugin_System/UI_Configuration_Pages.html">UI Configuration Pages</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>I2S DACs</a><ul class='nav nav-list'><li class=''><a href="../I2S_DACs/Adding_Compatibility_to_your_DAC.html">Adding Compatibility to your DAC</a></li></ul></li><li class='open has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Good to Knows</a><ul class='nav nav-list'><li class=''><a href="../Good_to_Knows/Markdown_Cheatsheet.html">Markdown Cheatsheet</a></li><li class=''><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Mounting an NFS Share</a></li><li class='active'><a href="../Good_to_Knows/Contribute_to_this_Doc.html">Contribute to this Doc</a></li><li class=''><a href="../Good_to_Knows/Connection_Outside_LAN.html">Connection Outside LAN</a></li><li class=''><a href="../Good_to_Knows/Command_Line_Client.html">Command Line Client</a></li></ul></li></ul>
+
+                <div class="sidebar-links">
+                    
+                        <!-- Links -->
+                        <a href="https://volumio.org" target="_blank">Home</a><br><a href="https://volumio.org/get-started" target="_blank">Download</a><br><a href="https://volumio.org/forum" target="_blank">Forum</a><br><a href="https://gitter.im/volumio/Volumio2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">Live Chat</a><br><a href="https://github.com/volumio" target="_blank">GitHub Repo</a><br><a href="https://volumio.github.io/docs/Good_to_Knows/Contribute_to_this_Doc.html" target="_blank">Improve this documentation</a><br>
+                        <div id="toggleCodeBlock">
+                                                    <a id="toggleCodeBlockBtn" href="#" onclick="toggleCodeBlocks();">Show Code Blocks Inline</a><br>
+                                                </div>
+
+                        <!-- Twitter -->
+                                                    <div class="twitter">
+                                <hr/>
+                                <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=volumio&amp;show_count=false"></iframe>
+                            </div>
+                        
+                        <hr/>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-column  content-area col-sm-9">
+
+            <div class="content-page">
+                                    <div id="tipue_search_content" style="display:none"></div>
+                
+                <div class="doc_content">
+                    <article>
+            <div class="page-header">
+            <h1>Contribute to this Doc</h1>
+        </div>
+    
+    <p>Everyone knows how tedious is to write documentation. But this is extremely important for every project, especially for Volumio. So if you find something incomplete, missing or
+wrong feel free to edit this doc and improve it.</p>
+<h4 id="page_How_this_doc_works">How this doc works</h4>
+<p>This DOC is powered by <a href="http://daux.io/">DAUX.IO</a> and the source is hosted on the <a href="https://github.com/volumio/docs">Gitghub Volumio docs repository</a>. To edit it, simply clone it, edit the
+pages located under /docs and issue a pull request. You can do either via command line or with a graphical tool, I personally suggest  <a href="https://www.gitkraken.com/">GitKraken</a>.</p>
+<h4 id="page_Cloning_and_issing_a_Pull_request">Cloning and issing a Pull request</h4>
+<ol>
+<li>Clone it</li>
+</ol>
+<pre><code class="language-bash"> https://github.com/volumio/docs.git
+</code></pre>
+<ol start="2">
+<li>
+<p>Edit it
+⋅⋅* I suggest <a href="https://atom.io/">Atom.io IDE</a> together with  <a href="https://atom.io/packages/markdown-preview">Markdown Preview</a> but any text editor will do
+⋅⋅* Make sure you comply with   <a href="http://daux.io/Getting_Started">DAUX rules</a> (if you crete a new page, don't use spaces but _ and make sure the name ends with .md)
+⋅⋅* This doc is written in Markdown language, and automatically converted to html. See the <a href="../Good_to_Knows/Markdown_Cheatsheet">Markdown Cheatsheet</a> to get used to it</p>
+</li>
+<li>
+<p>Commit it</p>
+</li>
+</ol>
+<pre><code class="language-bash">git commit -m &quot;Hey I changed this and that&quot;
+</code></pre>
+<ol start="4">
+<li>
+<p>Issue a pull request</p>
+</li>
+<li>
+<p>Once your PR gets accepted, in 2 minutes your contribution will be available to the whole community.</p>
+</li>
+</ol>
+<h4 id="page_See_changes_live">See changes live</h4>
+<p>To see your changes live, just download and launch any  <a href="https://www.apachefriends.org/it/index.html">XAMMP environment</a> to expose a php-capable local web server, and clone the docs
+under your htdocs folder. Docs will update in realtime and will be available under <code>http://localhost/docs</code></p>
+
+        <nav>
+        <ul class="pager">
+            <li><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Previous</a></li>            <li><a href="../Good_to_Knows/Connection_Outside_LAN.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46374275-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch_set.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.min.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(document).ready(function() {
+                $('#tipue_search_input').tipuesearch({
+                    'show': 10,
+                    'mode': 'json',
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

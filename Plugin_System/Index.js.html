@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Index.js - Volumio Documentation</title>
+    <meta name="description" content="The Audiophile Music Player" />
+    <meta name="author" content="Michelangelo Guarise">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/volumiodocs.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<div class="container-fluid fluid-height wrapper">
+    <div class="navbar navbar-static-top hidden-print">
+        <div class="container-fluid">
+            <a class="brand navbar-brand pull-left" href="../index.html">Volumio Documentation</a>
+
+    <div class="navbar-right navbar-form search">
+        <i class="glyphicon glyphicon-search search__icon">&nbsp;</i>
+        <input type="search" id="tipue_search_input" class="form-control search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+        </div>
+    </div>
+    <div class="row columns content">
+        <div class="left-column article-tree col-sm-3 hidden-print">
+            <!-- For Mobile -->
+            <div class="responsive-collapse">
+                <button type="button" class="btn btn-sidebar" id="menu-spinner-button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="sub-nav-collapse" class="sub-nav-collapse">
+                <!-- Navigation -->
+                <ul class='nav nav-list'><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>User Manual</a><ul class='nav nav-list'><li class=''><a href="../User_Manual/Quick_Start_Guide.html">Quick Start Guide</a></li><li class=''><a href="../User_Manual/System_updates.html">System updates</a></li><li class=''><a href="../User_Manual/Volume_Control_and_audio_quality.html">Volume Control and audio quality</a></li><li class=''><a href="../User_Manual/Configure_MPD_Clients_for_albumart.html">Configure MPD Clients for albumart</a></li><li class=''><a href="../User_Manual/Sending_logs_for_troubleshooting.html">Sending logs for troubleshooting</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Development How To</a><ul class='nav nav-list'><li class=''><a href="../Development_How_To/Overview.html">Overview</a></li><li class=''><a href="../Development_How_To/System_Architecture.html">System Architecture</a></li><li class=''><a href="../Development_How_To/Set_up_a_development_environment.html">Set up a development environment</a></li><li class=''><a href="../Development_How_To/Debugging.html">Debugging</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>API</a><ul class='nav nav-list'><li class=''><a href="../API/API_Overview.html">API Overview</a></li><li class=''><a href="../API/WebSocket_APIs.html">WebSocket APIs</a></li><li class=''><a href="../API/UI_Configuration_Pages.html">UI Configuration Pages</a></li><li class=''><a href="../API/REST_API.html">REST API</a></li></ul></li><li class='open has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Plugin System</a><ul class='nav nav-list'><li class=''><a href="../Plugin_System/Plugin_System_Overview.html">Plugin System Overview</a></li><li class=''><a href="../Plugin_System/Writing_A_Plugin.html">Writing A Plugin</a></li><li class='active'><a href="../Plugin_System/Index.js.html">Index.js</a></li><li class=''><a href="../Plugin_System/UI_Configuration_Pages.html">UI Configuration Pages</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>I2S DACs</a><ul class='nav nav-list'><li class=''><a href="../I2S_DACs/Adding_Compatibility_to_your_DAC.html">Adding Compatibility to your DAC</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Good to Knows</a><ul class='nav nav-list'><li class=''><a href="../Good_to_Knows/Markdown_Cheatsheet.html">Markdown Cheatsheet</a></li><li class=''><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Mounting an NFS Share</a></li><li class=''><a href="../Good_to_Knows/Contribute_to_this_Doc.html">Contribute to this Doc</a></li><li class=''><a href="../Good_to_Knows/Connection_Outside_LAN.html">Connection Outside LAN</a></li><li class=''><a href="../Good_to_Knows/Command_Line_Client.html">Command Line Client</a></li></ul></li></ul>
+
+                <div class="sidebar-links">
+                    
+                        <!-- Links -->
+                        <a href="https://volumio.org" target="_blank">Home</a><br><a href="https://volumio.org/get-started" target="_blank">Download</a><br><a href="https://volumio.org/forum" target="_blank">Forum</a><br><a href="https://gitter.im/volumio/Volumio2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">Live Chat</a><br><a href="https://github.com/volumio" target="_blank">GitHub Repo</a><br><a href="https://volumio.github.io/docs/Good_to_Knows/Contribute_to_this_Doc.html" target="_blank">Improve this documentation</a><br>
+                        <div id="toggleCodeBlock">
+                                                    <a id="toggleCodeBlockBtn" href="#" onclick="toggleCodeBlocks();">Show Code Blocks Inline</a><br>
+                                                </div>
+
+                        <!-- Twitter -->
+                                                    <div class="twitter">
+                                <hr/>
+                                <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=volumio&amp;show_count=false"></iframe>
+                            </div>
+                        
+                        <hr/>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-column  content-area col-sm-9">
+
+            <div class="content-page">
+                                    <div id="tipue_search_content" style="display:none"></div>
+                
+                <div class="doc_content">
+                    <article>
+            <div class="page-header">
+            <h1>Index.js</h1>
+        </div>
+    
+    <h3 id="page_Indexjs_aka_the_plugins_core">Index.js aka the plugin's core</h3>
+<p>The index.js file of every plugin is where the magic goes on. It has some predefined and mandatory functions and a standardized layout. Depending on you'r plugin's category, this structure needs to change accordingly. We'll start by detailing a generic plugin structure.</p>
+<h3 id="page_Generic_structure">Generic structure</h3>
+<p>The first part is about module dependencies, we'll need to list all the node modules our plugin depends on (example taken from Spotify plugin).</p>
+<pre><code class="language-javascript">'use strict';
+
+var libQ = require('kew');
+var libNet = require('net');
+var libFast = require('fast.js');
+var fs=require('fs-extra');
+var config = new (require('v-conf'))();
+var exec = require('child_process').exec;
+var SpotifyWebApi = require('spotify-web-api-node');
+var nodetools = require('nodetools');
+</code></pre>
+<p>IMPORTANT TIPS:</p>
+<ul>
+<li>Node modules allow you to develop faster, by relaying on already-written code to overcome the majority of tasks, to look for them <a href="https://www.npmjs.com/package/package">search here</a>
+</li>
+<li>The <code>'use strict';</code> declaration at the beginning will ensure no obvious coding mispractices will happen, <a href="http://www.w3schools.com/js/js_strict.asp">more info on the matter</a>
+</li>
+<li>Use the minimum amount of modules needed, and try to avoid modules that needs compilation (you will spot those because they'll take longer on npm install), so you will avoid to mantain two separate versions for x86 and arm architectures.</li>
+</ul>
+<p>Then we will define the plugin class and reference to other core Volumio's internals:</p>
+<pre><code class="language-javascript">module.exports = ControllerSpop;
+function ControllerSpop(context) {
+	// This fixed variable will let us refer to 'this' object at deeper scopes
+	var self = this;
+
+	this.context = context;
+	this.commandRouter = this.context.coreCommand;
+	this.logger = this.context.logger;
+	this.configManager = this.context.configManager;
+
+}
+</code></pre>
+<p>IMPORTANT TIPS:</p>
+<ul>
+<li>Substitute <code>ControllerSpop</code> with something that resembles your plugin name. For example <code>ControllerGPIO</code> or <code>ControllerSoundcloud</code>
+</li>
+<li>We'll start every prototype (see later) with this Controller naming</li>
+</ul>
+<p>Then we add all the required functions for a generic plugin:</p>
+<h4 id="page_On_Volumio_Start">On Volumio Start</h4>
+<p>This is the code that gets executed when Volumio starts and triggers the plugin start. Typically, what you do is load the plugin configuration.</p>
+<pre><code class="language-javascript">ControllerSpop.prototype.onVolumioStart = function()
+{
+	var configFile=this.commandRouter.pluginManager.getConfigurationFile(this.context,'config.json');
+	this.config = new (require('v-conf'))();
+	this.config.loadFile(configFile);
+
+}
+</code></pre>
+<h4 id="page_On_Start">On Start</h4>
+<p>This instead is what happens when the Plugin starts. It's different from On Volumio Start since this function is triggered only if the plugin is enabled. In this case we're starting the spop daemon (responsible for Spotify Playback).</p>
+<pre><code class="language-javascript">ControllerSpop.prototype.onStart = function() {
+	var self = this;
+
+	var defer=libQ.defer();
+
+	self.startSpopDaemon()
+		.then(function(e)
+		{
+			setTimeout(function () {
+				self.logger.info(&quot;Connecting to daemon&quot;);
+				self.spopDaemonConnect(defer);
+			}, 5000);
+		})
+		.fail(function(e)
+		{
+			defer.reject(new Error());
+		});
+	this.commandRouter.sharedVars.registerCallback('alsa.outputdevice', this.rebuildSPOPDAndRestartDaemon.bind(this));
+
+	return defer.promise;
+};
+</code></pre>
+<p><strong>IMPORTANT:</strong></p>
+<ul>
+<li>You'll notice that we use promises here. That's why Volumio needs to know when the plugin has actually started, or if it failed. So what we're doing is returning the promise on successful start, and rejecting it if it doesn't start properly.</li>
+<li>The strange function  <code>this.commandRouter.sharedVars.registerCallback('alsa.outputdevice', this.rebuildSPOPDAndRestartDaemon.bind(this));</code> does one important thing. It binds to a shared system value (alsa.outputdevice, which is the output device) and when it changes it triggers the function <code>rebuildSPOPDAndRestartDaemon</code> that rewrites spop config file and restarts it.</li>
+</ul>
+<h4 id="page_On_stop">On stop</h4>
+<p>When a plugin is stopped, this function gets executed. What we're doing here is killing the spop daemon. We must resolve the promise to signal everything was ok</p>
+<pre><code class="language-javascript">ControllerSpop.prototype.onStop = function() {
+	var self = this;
+
+	self.logger.info(&quot;Killing SpopD daemon&quot;);
+	exec(&quot;/usr/bin/sudo /usr/bin/killall spopd&quot;, function (error, stdout, stderr) {
+		if(error){
+			self.logger.info('Cannot kill spop Daemon')
+		}
+	});
+
+	return libQ.resolve();
+};
+</code></pre>
+<h4 id="page_Get_Configuration_files">Get Configuration files</h4>
+<p>Very straightforwarding, we load the .json configuration file for this plugin.</p>
+<pre><code class="language-javascript">ControllerSpop.prototype.getConfigurationFiles = function()
+{
+	return ['config.json'];
+}
+</code></pre>
+<h4 id="page_Get_UI_configuration">Get UI configuration</h4>
+<p>This function is triggered when we want to access the plugin configuration. For a better understanding of the configuration pages see <a href="../Plugin_System/UI_Configuration_Pages">Configuration Pages </a></p>
+<pre><code class="language-javascript">ControllerSpop.prototype.getUIConfig = function() {
+	var defer = libQ.defer();
+	var self = this;
+
+	var lang_code = this.commandRouter.sharedVars.get('language_code');
+
+	self.commandRouter.i18nJson(__dirname+'/i18n/strings_'+lang_code+'.json',
+		__dirname+'/i18n/strings_en.json',
+		__dirname + '/UIConfig.json')
+		.then(function(uiconf)
+		{
+
+			uiconf.sections[0].content[0].value = self.config.get('username');
+			uiconf.sections[0].content[1].value = self.config.get('password');
+			uiconf.sections[0].content[2].value = self.config.get('bitrate');
+
+			defer.resolve(uiconf);
+		})
+		.fail(function()
+		{
+			defer.reject(new Error());
+		});
+
+	return defer.promise;
+};
+
+</code></pre>
+<p>IMPORTANT:</p>
+<ul>
+<li>With <code>var lang_code = this.commandRouter.sharedVars.get('language_code');</code> we retrieve the current language code. If translation is provided under the <code>/i18n/</code> folder, we'll translate the configuration page, if not we'll default to english.</li>
+<li>We use promises here as well, since it will take some time to parse the UIConfig.json and translate it. Not using promises will result in configuration not working.</li>
+<li>With <code>uiconf.sections[0].content[0].value = self.config.get('username');</code> we're simply subsituting the first element's value of the first section with the <code>username</code> value taken from the plugins configuration.  That's how we can populate the UI Configuration Page with actual values.</li>
+</ul>
+<h3 id="page_Optional_functions_for_generic_plugins">Optional functions for generic plugins</h3>
+<h4 id="page_Get_configuration_from_other_plugins">Get configuration from other plugins</h4>
+<p>There are cases where we want to get configuration parameters from other plugins, for example to know if an i2s DAC has been enabled or not. We will then use the <code>executeOnPlugin</code> method which will allow us to execute any method on any plugin. For code clarity we wrapped it into the <code>getAdditionalConf</code> function, accepting 3 parameters which are mandatory for the aforementioned <code>executeOnPlugin</code>:</p>
+<ul>
+<li>TYPE (plugin category)</li>
+<li>CONTROLLER (plugin name)</li>
+<li>DATA (the configuration parameter we want to get)</li>
+</ul>
+<p>Please note that the function to get config parameters is not always <code>getConfigParam</code> but could be also just <code>getConf</code>. Check the individual plugin to see which is the correct function.</p>
+<pre><code class="language-javascript">ControllerAlsa.prototype.getAdditionalConf = function (type, controller, data) {
+	var self = this;
+	return self.commandRouter.executeOnPlugin(type, controller, 'getConfigParam', data);
+};
+</code></pre>
+<h4 id="page_Set_configuration_from_other_plugins">Set configuration from other plugins</h4>
+<p>Same as above, also here <code>setConfigParam</code>could be also <code>setConf</code> or <code>setUiConfig</code>. Check the individual plugin to see which is the correct function.</p>
+<pre><code class="language-javascript">UpnpInterface.prototype.setAdditionalConf = function () {
+	var self = this;
+
+	return self.commandRouter.executeOnPlugin(type, controller, 'setConfigParam', data);
+};
+</code></pre>
+<h4 id="page_Restart">Restart</h4>
+<p>Sometimes it might be useful to have a function to restart the plugin. Here's an example for upnp interface in Volumio.</p>
+<pre><code class="language-javascript">UpnpInterface.prototype.onRestart = function () {
+	var self = this;
+
+	exec('/usr/bin/sudo /usr/bin/killall upmpdcli', function (error, stdout, stderr) {
+		if (error) {
+			self.logger.error('Cannot kill upmpdcli '+error);
+		} self.startUpmpdcli();
+	});
+};
+</code></pre>
+<h3 id="page_Mandatory_Functions_for_Music_Sources_Plugin">Mandatory Functions for Music Sources Plugin</h3>
+<p>Music sources requires an extra bit of functions to be hooked properly into Volumio. Basically the need to expose their &quot;browsable&quot; structure of data, allow search and provide a translation for their displayed name on Music Sources. Missing any of those will result in a non working plugin, and possibly a broken Volumio.</p>
+<p>Those are:</p>
+<ul>
+<li>addToBrowseSources</li>
+<li>handleBrowseUri</li>
+<li>explodeUri</li>
+<li>search</li>
+</ul>
+<h4 id="page_Add_to_Browse_sources">Add to Browse sources</h4>
+<p>This functions adds the new music source to Main Browse Menu.
+Rules to Follow:</p>
+<ul>
+<li>Invoke this function ONLY when the plugin starts properly, and if you're relying on a daemon only when successful connection has been established with the daemon and the service.</li>
+<li>Every call to the <code>uri</code> specified here, will be handled by this plugin. Basically, when clicking &quot;Spotify&quot;, we'll handle the request in this plugin via the function and return the sub-categories available. Those will be handled by the <code>handleBrowseUri</code> function later on.</li>
+</ul>
+<pre><code class="language-javascript">ControllerSpop.prototype.addToBrowseSources = function () {
+	var data = {name: 'Spotify', uri: 'spotify',plugin_type:'music_service',plugin_name:'spop'};
+	this.commandRouter.volumioAddToBrowseSources(data);
+};
+</code></pre>
+<h4 id="page_Handle_Browse_uri">Handle Browse uri</h4>
+<p>This function is responsible to interpret the desired URI (basically the browse point requested) and return the available items. Some examples:</p>
+<ul>
+<li>Webradios browsing:</li>
+</ul>
+<pre><code class="language-javascript">ControllerWebradio.prototype.handleBrowseUri=function(curUri)
+{
+    var self=this;
+    var response;
+
+    if (curUri.startsWith('radio')) {
+        if (curUri == 'radio')
+            response = self.listRoot(curUri);
+        else {
+            if (curUri.startsWith('radio/myWebRadio')) {
+                response = self.listMyWebRadio(curUri);
+            }
+            if (curUri.startsWith('radio/byGenre')) {
+                if (curUri == 'radio/byGenre')
+                    response = self.listRadioGenres(curUri);
+                else
+                    response = self.listRadioForGenres(curUri);
+            }
+            if (curUri.startsWith('radio/favourites')) {
+                response = self.listRadioFavourites(curUri);
+            }
+             if (curUri==='radio/top500') {
+                    response = self.listTop500Radios(curUri);
+            }
+             else if (curUri.startsWith('radio/byCountry')) {
+                 if (curUri == 'radio/byCountry')
+                     response = self.listRadioCountries(curUri);
+                 else
+                     response = self.listRadioForCountry(curUri);
+
+             }
+        }
+    }
+
+    return response;
+}
+</code></pre>
+<ul>
+<li>Music Library and playlist browsing:</li>
+</ul>
+<pre><code class="language-javascript">ControllerMpd.prototype.handleBrowseUri = function (curUri) {
+    var self = this;
+
+    var response;
+
+    if (curUri.startsWith('music-library')) {
+        response = self.lsInfo(curUri);
+    }else if (curUri.startsWith('playlists')) {
+        if (curUri == 'playlists')
+            response = self.listPlaylists(curUri);
+        else response = self.browsePlaylist(curUri);
+    }
+
+    return response;
+};
+
+</code></pre>
+<ul>
+<li>Spotify browsing</li>
+</ul>
+<pre><code class="language-javascript">ControllerSpop.prototype.handleBrowseUri=function(curUri)
+
+{
+	var self=this;
+
+	//self.commandRouter.logger.info(curUri);
+	var response;
+
+	if (curUri.startsWith('spotify')) {
+		if(curUri=='spotify')
+		{
+			response=libQ.resolve({
+				navigation: {
+					prev: {
+						uri: 'spotify'
+					},
+					lists: [
+                    { 
+                    &quot;title&quot;: &quot;Spotify Folders&quot;,
+                    &quot;icon&quot;: &quot;fa fa-folder-open-o&quot;,
+                    &quot;availableListViews&quot;: [&quot;list&quot;,&quot;grid&quot;],
+                    &quot;items&quot;: [
+						{
+							service: 'spop',
+							type: 'folder',
+							title: 'My Playlists',
+							artist: '',
+							album: '',
+							icon: 'fa fa-folder-open-o',
+							uri: 'spotify/playlists'
+						},
+						{
+							service: 'spop',
+							type: 'folder',
+							title: 'Featured Playlists',
+							artist: '',
+							album: '',
+							icon: 'fa fa-folder-open-o',
+							uri: 'spotify/featuredplaylists'
+						},
+						{
+							service: 'spop',
+							type: 'folder',
+							title: 'What\'s New',
+							artist: '',
+							album: '',
+							icon: 'fa fa-folder-open-o',
+							uri: 'spotify/new'
+						},
+						{
+							service: 'spop',
+							type: 'folder',
+							title: 'Genres &amp; Moods',
+							artist: '',
+							album: '',
+							icon: 'fa fa-folder-open-o',
+							uri: 'spotify/categories'
+						}
+					]
+				}
+                ]
+                }
+			});
+		}
+		else if(curUri.startsWith('spotify/playlists'))
+		{
+			if(curUri=='spotify/playlists')
+				response=self.listPlaylists();
+			else
+			{
+				response=self.listPlaylist(curUri);
+			}
+		}
+		else if(curUri.startsWith('spotify/featuredplaylists'))
+		{
+			response=self.featuredPlaylists(curUri);
+		}
+		else if(curUri.startsWith('spotify/webplaylist'))
+		{
+			response=self.listWebPlaylist(curUri);
+		}
+		else if(curUri.startsWith('spotify/new'))
+		{
+			response=self.listWebNew(curUri);
+		}
+		else if(curUri.startsWith('spotify/categories'))
+		{
+			response=self.listWebCategories(curUri);
+		}
+		else if(curUri.startsWith('spotify/album'))
+		{
+			response=self.listWebAlbum(curUri);
+		}
+		else if(curUri.startsWith('spotify/category'))
+		{
+			response=self.listWebCategory(curUri);
+		}
+		else if(curUri.startsWith('spotify:artist:'))
+		{
+			response=self.listWebArtist(curUri);
+		}
+	}
+
+	return response;
+};
+</code></pre>
+<p>BEST PRACTICES:</p>
+<ul>
+<li>Hardcode all expected uris, and handle errors in case you receive an unknown one</li>
+<li>Use separate functions for every uri tpye</li>
+<li>Use promises where possible</li>
+<li>If you use an external API service with API limits, cache where possible.</li>
+<li>Navigation is nested, so make sure you provide the upper level (needed for going back while browsing)</li>
+<li>You can display an icon by using <code>icon</code> and using a  <a href="http://fontawesome.io/icons/">font-awesome icon</a>
+</li>
+<li>You can display an image by using <code>albumart</code>, you can then pass a direct url or use the Albumart Server</li>
+<li>The albumart API is: <code>/albumart?web=artist/album/large&amp;path=path</code> all encoded which becomes <code>/albumart?web=Alabama%20Shakes/Sound%20%26%20Color/large&amp;path=%2FUSB%2FALABAMA%20SHAKES%20S%20%26%20C</code>
+</li>
+<li>The <code>title</code> and <code>icon</code> attributes are used to divide sections with different content in it, like showing albums and songs for a particular artists. They become separators.</li>
+<li>The <code>availableListViews</code> attribute is used to indicate the visualizations options available for this particular list of items. Generally folders, albums and artists have both list and grid views available, while tracks and genres are visualized only in list mode.</li>
+</ul>
+<p>GENERIC OUTPUT EXAMPLE:</p>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;lists&quot;: [
+      {
+        &quot;title&quot;: &quot;Artists&quot;,
+        &quot;icon&quot;: &quot;fa icon&quot;,
+        &quot;availableListViews&quot;: [
+          &quot;list&quot;,
+          &quot;grid&quot;
+        ],
+        &quot;items&quot;: [
+          {
+            &quot;service&quot;: &quot;mpd&quot;,
+            &quot;type&quot;: &quot;song&quot;,
+            &quot;title&quot;: &quot;Led Zeppelin&quot;,
+            &quot;icon&quot;: &quot;fa fa-music&quot;,
+            &quot;uri&quot;: &quot;search://artist/Led Zeppelin&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Webradios&quot;,
+        &quot;icon&quot;: &quot;&quot;,
+        &quot;availableListViews&quot;: [
+          &quot;list&quot;
+        ],
+        &quot;items&quot;: [
+          {
+            &quot;service&quot;: &quot;webradio&quot;,
+            &quot;type&quot;: &quot;webradio&quot;,
+            &quot;title&quot;: &quot;ledjam&quot;,
+            &quot;artist&quot;: &quot;&quot;,
+            &quot;album&quot;: &quot;&quot;,
+            &quot;icon&quot;: &quot;fa fa-microphone&quot;,
+            &quot;uri&quot;: &quot;http://yp.shoutcast.com/sbin/tunein-station.m3u?id=492072&quot;
+          },
+          {
+            &quot;service&quot;: &quot;webradio&quot;,
+            &quot;type&quot;: &quot;webradio&quot;,
+            &quot;title&quot;: &quot;NAXI 80-e RADIO (NAXI,Belgrade,Serbia, NAXI,Beograd,Srbija) - 128k&quot;,
+            &quot;artist&quot;: &quot;&quot;,
+            &quot;album&quot;: &quot;&quot;,
+            &quot;icon&quot;: &quot;fa fa-microphone&quot;,
+            &quot;uri&quot;: &quot;http://yp.shoutcast.com/sbin/tunein-station.m3u?id=68544&quot;
+          }
+        ]
+      }
+    ],
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;/&quot;
+    }
+  }
+}
+</code></pre>
+<p>EXPECTED RESULTS EXAMPLES:</p>
+<ul>
+<li>Local folders</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;music-library&quot;
+    },
+    &quot;lists&quot;: [
+      { 
+      &quot;availableListViews&quot;: [&quot;list&quot;,&quot;grid&quot;],
+      &quot;items&quot;: [ 
+      {
+        &quot;type&quot;: &quot;folder&quot;,
+        &quot;title&quot;: &quot;Calibro 35 (2008)&quot;,
+        &quot;icon&quot;: &quot;fa fa-folder-open-o&quot;,
+        &quot;uri&quot;: &quot;music-library/USB/Calibro 35 (2008)&quot;
+      },
+      {
+        &quot;type&quot;: &quot;folder&quot;,
+        &quot;title&quot;: &quot;In Sight&quot;,
+        &quot;icon&quot;: &quot;fa fa-folder-open-o&quot;,
+        &quot;uri&quot;: &quot;music-library/USB/In Sight&quot;
+      }
+    ]
+    }
+    ]
+  }
+}
+</code></pre>
+<ul>
+<li>Local files</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;music-library/USB&quot;
+    },
+    &quot;lists&quot;: [
+      { 
+      &quot;availableListViews&quot;: [&quot;list&quot;],
+      &quot;items&quot;: [ 
+      {
+        &quot;service&quot;: &quot;mpd&quot;,
+        &quot;type&quot;: &quot;song&quot;,
+        &quot;title&quot;: &quot;Sound &amp; Color&quot;,
+        &quot;artist&quot;: &quot;Alabama Shakes&quot;,
+        &quot;album&quot;: &quot;Sound &amp; Color&quot;,
+        &quot;icon&quot;: &quot;fa fa-music&quot;,
+        &quot;uri&quot;: &quot;music-library/USB/ALABAMA SHAKES S &amp; C/01 Sound &amp; Color.mp3&quot;
+      },
+      {
+        &quot;service&quot;: &quot;mpd&quot;,
+        &quot;type&quot;: &quot;song&quot;,
+        &quot;title&quot;: &quot;Don't Wanna Fight&quot;,
+        &quot;artist&quot;: &quot;Alabama Shakes&quot;,
+        &quot;album&quot;: &quot;Sound &amp; Color&quot;,
+        &quot;icon&quot;: &quot;fa fa-music&quot;,
+        &quot;uri&quot;: &quot;music-library/USB/ALABAMA SHAKES S &amp; C/02 Don't Wanna Fight.mp3&quot;
+      }
+    ]
+    }
+    ]
+  }
+}
+</code></pre>
+<ul>
+<li>Webradios</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;radio/byGenre&quot;
+    },
+    &quot;lists&quot;: [
+    { 
+      &quot;availableListViews&quot;: [&quot;list&quot;],
+      &quot;items&quot;: [ 
+      {
+        &quot;service&quot;: &quot;webradio&quot;,
+        &quot;type&quot;: &quot;webradio&quot;,
+        &quot;title&quot;: &quot;Oldies FM&quot;,
+        &quot;artist&quot;: &quot;&quot;,
+        &quot;album&quot;: &quot;&quot;,
+        &quot;icon&quot;: &quot;fa fa-microphone&quot;,
+        &quot;uri&quot;: &quot;http://yp.shoutcast.com/sbin/tunein-station.m3u?id=728640&quot;
+      },
+      {
+        &quot;service&quot;: &quot;webradio&quot;,
+        &quot;type&quot;: &quot;webradio&quot;,
+        &quot;title&quot;: &quot;San Francisco's 70's HITS!&quot;,
+        &quot;artist&quot;: &quot;&quot;,
+        &quot;album&quot;: &quot;&quot;,
+        &quot;icon&quot;: &quot;fa fa-microphone&quot;,
+        &quot;uri&quot;: &quot;http://yp.shoutcast.com/sbin/tunein-station.m3u?id=1087995&quot;
+      }
+    ]
+    }
+    ]
+  }
+}
+</code></pre>
+<ul>
+<li>Spotify Categories (similar to local folders)</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;spotify&quot;
+    },
+    &quot;lists&quot;: [
+    { 
+      &quot;availableListViews&quot;: [&quot;list&quot;,&quot;grid&quot;],
+      &quot;items&quot;: [ 
+      {
+        &quot;service&quot;: &quot;spop&quot;,
+        &quot;type&quot;: &quot;folder&quot;,
+        &quot;title&quot;: &quot;My Playlists&quot;,
+        &quot;artist&quot;: &quot;&quot;,
+        &quot;album&quot;: &quot;&quot;,
+        &quot;icon&quot;: &quot;fa fa-folder-open-o&quot;,
+        &quot;uri&quot;: &quot;spotify/playlists&quot;
+      },
+      {
+        &quot;service&quot;: &quot;spop&quot;,
+        &quot;type&quot;: &quot;folder&quot;,
+        &quot;title&quot;: &quot;Featured Playlists&quot;,
+        &quot;artist&quot;: &quot;&quot;,
+        &quot;album&quot;: &quot;&quot;,
+        &quot;icon&quot;: &quot;fa fa-folder-open-o&quot;,
+        &quot;uri&quot;: &quot;spotify/featuredplaylists&quot;
+      }
+    ]
+    }
+    ]
+  }
+}
+</code></pre>
+<ul>
+<li>Spotify Songs (streaming plugins)</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;navigation&quot;: {
+    &quot;prev&quot;: {
+      &quot;uri&quot;: &quot;spotify&quot;
+    },
+    &quot;lists&quot;: [
+    { 
+      &quot;availableListViews&quot;: [&quot;list&quot;],
+      &quot;items&quot;: [ 
+      {
+        &quot;service&quot;: &quot;spop&quot;,
+        &quot;type&quot;: &quot;song&quot;,
+        &quot;title&quot;: &quot;Vienna&quot;,
+        &quot;artist&quot;: &quot;Thom Sonny Green&quot;,
+        &quot;album&quot;: &quot;High Anxiety&quot;,
+        &quot;albumart&quot;: &quot;https://i.scdn.co/image/dac9ef993de0a5758cc6e655080306d40814edc9&quot;,
+        &quot;uri&quot;: &quot;spotify:track:5cgSWdlxIelg5N9OjfkRow&quot;
+      },
+      {
+        &quot;service&quot;: &quot;spop&quot;,
+        &quot;type&quot;: &quot;song&quot;,
+        &quot;title&quot;: &quot;40 Beers&quot;,
+        &quot;artist&quot;: &quot;Thom Sonny Green&quot;,
+        &quot;album&quot;: &quot;High Anxiety&quot;,
+        &quot;albumart&quot;: &quot;https://i.scdn.co/image/dac9ef993de0a5758cc6e655080306d40814edc9&quot;,
+        &quot;uri&quot;: &quot;spotify:track:2r6oZ0GBqJaCnqqR72yiFc&quot;
+      }
+    ]
+    }
+    ]
+  }
+}
+
+</code></pre>
+<h4 id="page_Explode_uri">Explode uri</h4>
+<p>This function takes care of retrieving all informations related to a particular URI, it's needed both by queue and state machine. Some examples:</p>
+<ul>
+<li>Local files (MPD)</li>
+</ul>
+<pre><code class="language-javascript">ControllerMpd.prototype.explodeUri = function(uri) {
+    var self = this;
+
+    var defer=libQ.defer();
+
+    var items = [];
+    var cmd = libMpd.cmd;
+
+    if(uri.startsWith('search://'))
+    {
+        //exploding search
+        var splitted=uri.split('/');
+
+        var argument=splitted[2];
+        var value=splitted[3];
+
+        if(argument==='artist')
+        {
+            var commandArtist = 'search artist '+' &quot;' + value + '&quot;';
+
+            self.mpdReady.then(function () {
+                self.clientMpd.sendCommand(cmd(commandArtist, []), function (err, msg) {
+                    var subList=[];
+
+                    if (msg) {
+                        var lines = msg.split('\n');
+                        for (var i = 0; i &lt; lines.length; i++) {
+                            var line = lines[i];
+
+                            if (line.startsWith('file:')) {
+                                var path = line.slice(5).trimLeft();
+                                var name = path.split('/');
+                                var count = name.length;
+
+                                var artist = self.searchFor(lines, i + 1, 'Artist:');
+                                var album = self.searchFor(lines, i + 1, 'Album:');
+                                var title = self.searchFor(lines, i + 1, 'Title:');
+                                var time = parseInt(self.searchFor(lines, i + 1, 'Time:'));
+
+                                if (title) {
+                                    title = title;
+                                } else {
+                                    title = name;
+                                }
+
+                                items.push({
+                                    uri: 'music-library/'+path,
+                                    service: 'mpd',
+                                    name: title,
+                                    artist: artist,
+                                    album: album,
+                                    type: 'track',
+                                    tracknumber: 0,
+                                    albumart: self.getAlbumArt({artist:artist,album: album},uri),
+                                    duration: time,
+                                    trackType: 'mp3'
+                                });
+                            }
+
+                        }
+
+                        defer.resolve(items);
+                    }
+                    else if(err)  defer.reject(new Error('Artist:' +err));
+                    else defer.resolve(items);
+                });
+            });
+        }
+        else if(argument==='album')
+        {
+            var commandAlbum = 'search album '+' &quot;' + value + '&quot;';
+
+            self.mpdReady.then(function () {
+                self.clientMpd.sendCommand(cmd(commandAlbum, []), function (err, msg) {
+                    var subList=[];
+
+                    if (msg) {
+
+                        var lines = msg.split('\n');
+                        for (var i = 0; i &lt; lines.length; i++) {
+							var line = lines[i];
+
+                            if (line.startsWith('file:')) {
+                                var path = line.slice(5).trimLeft();
+                                var name = path.split('/');
+                                var count = name.length;
+
+                                var artist = self.searchFor(lines, i + 1, 'Artist:');
+                                var album = self.searchFor(lines, i + 1, 'Album:');
+                                var title = self.searchFor(lines, i + 1, 'Title:');
+                                var time = parseInt(self.searchFor(lines, i + 1, 'Time:'));
+
+                                if (title) {
+                                    title = title;
+                                } else {
+                                    title = name;
+                                }
+
+                                items.push({
+                                    uri: 'music-library/' + path,
+                                    service: 'mpd',
+                                    name: title,
+                                    artist: artist,
+                                    album: album,
+                                    type: 'track',
+                                    tracknumber: 0,
+                                    albumart: self.getAlbumArt({artist: artist, album: album}, uri),
+                                    duration: time,
+                                    trackType: 'mp3'
+                                });
+                            }
+                        }
+                        defer.resolve(items);
+                    }
+                    else if(err)  defer.reject(new Error('Artist:' +err));
+                    else defer.resolve(items);
+                });
+            });
+        }
+        else defer.reject(new Error());
+    }
+    else {
+        var uriPath='/mnt/'+self.sanitizeUri(uri);
+        self.commandRouter.logger.info('----------------------------'+uriPath);
+        var uris=self.scanFolder(uriPath);
+        var response=[];
+
+        libQ.all(uris)
+            .then(function(result)
+            {
+                for(var j in result)
+                {
+
+                    self.commandRouter.logger.info(&quot;-----&gt;&gt;&gt;&gt;&gt; &quot;+JSON.stringify(result[j]));
+
+                    if(result!==undefined &amp;&amp; result[j].uri!==undefined)
+                    {
+                        response.push({
+                            uri: self.fromPathToUri(result[j].uri),
+                            service: 'mpd',
+                            name: result[j].name,
+                            artist: result[j].artist,
+                            album: result[j].album,
+                            type: 'track',
+                            tracknumber: result[j].tracknumber,
+                            albumart: result[j].albumart,
+                            duration: result[j].duration,
+                            samplerate: result[j].samplerate,
+                            bitdepth: result[j].bitdepth,
+                            trackType: result[j].trackType
+                        });
+                    }
+
+                }
+
+                defer.resolve(response);
+            }).fail(function(err)
+        {
+            self.commandRouter.logger.info(&quot;explodeURI: ERROR &quot;+err);
+            defer.resolve([]);
+        });
+    }
+
+    return defer.promise;
+};
+
+</code></pre>
+<ul>
+<li>Webradio</li>
+</ul>
+<pre><code class="language-javascript">ControllerWebradio.prototype.explodeUri = function(uri) {
+    var self = this;
+
+    var defer=libQ.defer();
+
+    defer.resolve({
+        uri: uri,
+        service: 'webradio',
+        name: uri,
+        type: 'track'
+    });
+
+    return defer.promise;
+};
+</code></pre>
+<h4 id="page_Search">Search</h4>
+<p>Every Music Service should provide a search function, but that's not mandatory. A typical search function MUST use promises and return objects formatted exactly like the above browse results. This is what a search backbone look like, where all search results are pushed into a list array and then resolved. Remember to divide search results (like artist, folders etc) with the APIs detailed above (title and icon) and to respect visualization types.</p>
+<pre><code class="language-javascript">ControllerSpop.prototype.search = function (query) {
+
+	var self=this;
+
+	var defer=libQ.defer();
+
+  defer.resolve(list);
+
+
+  			}, function (err) {
+  				self.logger.info('An error occurred while searching ' + err);
+  			});
+  		});
+
+  	return defer.promise;
+</code></pre>
+
+        <nav>
+        <ul class="pager">
+            <li><a href="../Plugin_System/Writing_A_Plugin.html">Previous</a></li>            <li><a href="../Plugin_System/UI_Configuration_Pages.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46374275-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch_set.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.min.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(document).ready(function() {
+                $('#tipue_search_input').tipuesearch({
+                    'show': 10,
+                    'mode': 'json',
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

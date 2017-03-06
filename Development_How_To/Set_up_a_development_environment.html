@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Set up a development environment - Volumio Documentation</title>
+    <meta name="description" content="The Audiophile Music Player" />
+    <meta name="author" content="Michelangelo Guarise">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/volumiodocs.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<div class="container-fluid fluid-height wrapper">
+    <div class="navbar navbar-static-top hidden-print">
+        <div class="container-fluid">
+            <a class="brand navbar-brand pull-left" href="../index.html">Volumio Documentation</a>
+
+    <div class="navbar-right navbar-form search">
+        <i class="glyphicon glyphicon-search search__icon">&nbsp;</i>
+        <input type="search" id="tipue_search_input" class="form-control search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+        </div>
+    </div>
+    <div class="row columns content">
+        <div class="left-column article-tree col-sm-3 hidden-print">
+            <!-- For Mobile -->
+            <div class="responsive-collapse">
+                <button type="button" class="btn btn-sidebar" id="menu-spinner-button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="sub-nav-collapse" class="sub-nav-collapse">
+                <!-- Navigation -->
+                <ul class='nav nav-list'><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>User Manual</a><ul class='nav nav-list'><li class=''><a href="../User_Manual/Quick_Start_Guide.html">Quick Start Guide</a></li><li class=''><a href="../User_Manual/System_updates.html">System updates</a></li><li class=''><a href="../User_Manual/Volume_Control_and_audio_quality.html">Volume Control and audio quality</a></li><li class=''><a href="../User_Manual/Configure_MPD_Clients_for_albumart.html">Configure MPD Clients for albumart</a></li><li class=''><a href="../User_Manual/Sending_logs_for_troubleshooting.html">Sending logs for troubleshooting</a></li></ul></li><li class='open has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Development How To</a><ul class='nav nav-list'><li class=''><a href="../Development_How_To/Overview.html">Overview</a></li><li class=''><a href="../Development_How_To/System_Architecture.html">System Architecture</a></li><li class='active'><a href="../Development_How_To/Set_up_a_development_environment.html">Set up a development environment</a></li><li class=''><a href="../Development_How_To/Debugging.html">Debugging</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>API</a><ul class='nav nav-list'><li class=''><a href="../API/API_Overview.html">API Overview</a></li><li class=''><a href="../API/WebSocket_APIs.html">WebSocket APIs</a></li><li class=''><a href="../API/UI_Configuration_Pages.html">UI Configuration Pages</a></li><li class=''><a href="../API/REST_API.html">REST API</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Plugin System</a><ul class='nav nav-list'><li class=''><a href="../Plugin_System/Plugin_System_Overview.html">Plugin System Overview</a></li><li class=''><a href="../Plugin_System/Writing_A_Plugin.html">Writing A Plugin</a></li><li class=''><a href="../Plugin_System/Index.js.html">Index.js</a></li><li class=''><a href="../Plugin_System/UI_Configuration_Pages.html">UI Configuration Pages</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>I2S DACs</a><ul class='nav nav-list'><li class=''><a href="../I2S_DACs/Adding_Compatibility_to_your_DAC.html">Adding Compatibility to your DAC</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Good to Knows</a><ul class='nav nav-list'><li class=''><a href="../Good_to_Knows/Markdown_Cheatsheet.html">Markdown Cheatsheet</a></li><li class=''><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Mounting an NFS Share</a></li><li class=''><a href="../Good_to_Knows/Contribute_to_this_Doc.html">Contribute to this Doc</a></li><li class=''><a href="../Good_to_Knows/Connection_Outside_LAN.html">Connection Outside LAN</a></li><li class=''><a href="../Good_to_Knows/Command_Line_Client.html">Command Line Client</a></li></ul></li></ul>
+
+                <div class="sidebar-links">
+                    
+                        <!-- Links -->
+                        <a href="https://volumio.org" target="_blank">Home</a><br><a href="https://volumio.org/get-started" target="_blank">Download</a><br><a href="https://volumio.org/forum" target="_blank">Forum</a><br><a href="https://gitter.im/volumio/Volumio2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">Live Chat</a><br><a href="https://github.com/volumio" target="_blank">GitHub Repo</a><br><a href="https://volumio.github.io/docs/Good_to_Knows/Contribute_to_this_Doc.html" target="_blank">Improve this documentation</a><br>
+                        <div id="toggleCodeBlock">
+                                                    <a id="toggleCodeBlockBtn" href="#" onclick="toggleCodeBlocks();">Show Code Blocks Inline</a><br>
+                                                </div>
+
+                        <!-- Twitter -->
+                                                    <div class="twitter">
+                                <hr/>
+                                <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=volumio&amp;show_count=false"></iframe>
+                            </div>
+                        
+                        <hr/>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-column  content-area col-sm-9">
+
+            <div class="content-page">
+                                    <div id="tipue_search_content" style="display:none"></div>
+                
+                <div class="doc_content">
+                    <article>
+            <div class="page-header">
+            <h1>Set up a development environment</h1>
+        </div>
+    
+    <h2 id="page_Development_environment">Development environment</h2>
+<p>In order to develop new functionalities of Volumio, depending on which part you want to improve, you need to set up a development environment.
+Volumio is designed to be an highly integrated system. This means that the WebUi is optimized to work along with the custom made Volumio system, and therefore it needs to run in a very tightly controlled environment. IT WON'T WORK on standard Raspbian or other non-volumio OSes. If you want to know what kind of customizations we're using, take a look at the <a href="https://github.com/volumio/Build">Volumio Builder</a></p>
+<p>So, we suggest to have a running Volumio device connected to your local network, while developing on your machine.</p>
+<h3 id="page_Setting_up_a_development_environment_for_Volumio2_NODE_Backend">Setting up a development environment for Volumio2 NODE Backend</h3>
+<p>In this scenario, we will develop direclty on the Volumio device, but editing the main files on your PC\MAC. There are several ways to achieve such result</p>
+<ul>
+<li>Mount the /volumio directory of your device to a Folder on your system via sftp (volumio:volumio)</li>
+<li>Use an IDE that allows remote deplyoment (like <a href="https://atom.io/">Atom</a> or <a href="https://www.jetbrains.com/webstorm/">Webstorm</a> which we suggest since its simply awesome!)</li>
+</ul>
+<p>When you make changes to any file of Volumio, you can restart the service with</p>
+<pre><code class="language-shell">killall node
+</code></pre>
+<p>or</p>
+<pre><code class="language-shell">systemctl restart volumio
+</code></pre>
+<p>You can see all logs, generated both by the system and Volumio with</p>
+<pre><code class="language-shell">sudo journalctl -f
+</code></pre>
+<p>So, ideally, you'll want to:</p>
+<ul>
+<li>Edit the files from your editor of choice</li>
+<li>Upload changes to the Volumio device</li>
+<li>Restart NODE Services</li>
+<li>See the effects via an SSH connection, with sudo journalctl -f</li>
+</ul>
+<p><em>IMPORTANT</em>: If you want to develop on the latest version, you can simply launch this command to obtain the latest code on master branch:</p>
+<pre><code class="language-shell">volumio pull
+</code></pre>
+<h3 id="page_Setting_up_a_development_environment_for_Volumio2_UI">Setting up a development environment for Volumio2 UI</h3>
+<p>Volumio2 UI is an <a href="https://angularjs.org/">AngularJS</a> based WebAPP. You can develop on it from your PC\MAC but you need to have a Volumio device on your network.
+The UI communicates with Volumio's backend via <a href="/docs/API/WebSocket_APIs">WebSockets</a> using Socket.io <a href="http://socket.io/">Socket.io</a></p>
+<p>To set up a development environment on your PC\MAC do:</p>
+<h4 id="page_Install_dependencies_only_firt_time">Install dependencies (only firt time)</h4>
+<ul>
+<li>Download and install <a href="https://nodejs.org/it/download/">Node.js</a>
+</li>
+<li>Download and install <a href="https://bower.io/#install-bower">Bower</a>
+</li>
+<li>Download and install <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a>
+</li>
+</ul>
+<h4 id="page_Prepare_Volumio2_UI_Development_folder">Prepare Volumio2 UI Development folder</h4>
+<ul>
+<li>Clone the UI with:</li>
+</ul>
+<pre><code class="language-shell"> git clone https://github.com/volumio/Volumio2-UI
+</code></pre>
+<p>We suggest developing on the <em>development</em> branch, and to push your Pull requests there:</p>
+<pre><code class="language-shell"> cd Volumio2-UI
+ git checkout development
+</code></pre>
+<ul>
+<li>Install npm dependencies</li>
+</ul>
+<pre><code class="language-shell">npm install
+</code></pre>
+<ul>
+<li>Install bower dependencies</li>
+</ul>
+<pre><code class="language-shell">bower install
+</code></pre>
+<ul>
+<li>Tell the UI where our Volumio instance is :</li>
+</ul>
+<p>Now, you can develop on it, while retrieving data from Volumio2 backend (you must have a Volumio2 device on your network and know its IP address). To tell the UI where to find Volumio 2 backend, create a file with the IP of Volumio2 in</p>
+<pre><code class="language-shell">/src/app/local-config.json
+</code></pre>
+<p>The file will look like</p>
+<pre><code class="language-json">{
+  &quot;localhost&quot;: &quot;http://192.168.31.234&quot;
+}
+</code></pre>
+<p>Now, feel free to edit and see live changes on a local browser with dynamically generated UI. To do so:</p>
+<pre><code class="language-shell">gulp serve --theme=&quot;volumio&quot;
+</code></pre>
+<p>Once finished, to deploy on Volumio 2, first build it. if you want production optimization use --env=&quot;production&quot;</p>
+<pre><code class="language-shell">gulp build --theme=&quot;volumio&quot; --env=&quot;production&quot;
+</code></pre>
+<p>And deploy by copying the content of dist directory on Volumio2 device to:</p>
+<pre><code class="language-shell">/volumio/http/www
+</code></pre>
+<h3 id="page_Setting_up_a_development_environment_for_Volumio_2_images">Setting up a development environment for Volumio 2 images</h3>
+<p>We suggest to develop on a debian based environment</p>
+<h4 id="page_Install_dependencies">Install dependencies</h4>
+<pre><code>git squashfs-tools kpartx multistrap qemu-user-static samba debootstrap parted dosfstools qemu binfmt-support qemu-utils
+</code></pre>
+<h4 id="page_Set_up_development_folder">Set up development folder</h4>
+<ul>
+<li>clone the build repo on your local folder  : git clone https://github.com/volumio/Build build</li>
+<li>if on Ubuntu, you may need to remove <code>$forceyes</code> from line 989 of /usr/sbin/multistrap</li>
+<li>cd to /build and type</li>
+</ul>
+<pre><code>./build.sh -b &lt;architecture&gt; -d &lt;device&gt; -v &lt;version&gt;
+</code></pre>
+<p>where switches are :</p>
+<ul>
+<li>-b <code>&lt;arch&gt;</code> Build a full system image with Multistrap. Options for the target architecture are <strong>arm</strong> or <strong>x86</strong>.</li>
+<li>-d <code>&lt;dev&gt;</code>  Create Image for Specific Devices. Supported device names:
+<strong>pi</strong>, <strong>odroidc1/2/xu4/x2</strong>, udoo, cuboxi, bbb, cubietruck, compulab, <strong>x86</strong>
+</li>
+<li>-l <code>&lt;repo&gt;</code> Create docker layer. Give a Docker Repository name as the argument.</li>
+<li>-v <code>&lt;vers&gt;</code> Version</li>
+</ul>
+<p>Example: Build a Raspberry PI image from scratch, version 2.0 :</p>
+<pre><code>./build.sh -b arm -d pi -v 2.0 -l reponame
+</code></pre>
+<p>You do not have to build the architecture and the image at the same time.</p>
+<p>Example: Build the architecture for x86 first and the image version MyVersion in a second step:</p>
+<pre><code>./build.sh -b x86
+
+./build.sh -d x86 -v MyVersion
+</code></pre>
+
+        <nav>
+        <ul class="pager">
+            <li><a href="../Development_How_To/System_Architecture.html">Previous</a></li>            <li><a href="../Development_How_To/Debugging.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46374275-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch_set.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.min.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(document).ready(function() {
+                $('#tipue_search_input').tipuesearch({
+                    'show': 10,
+                    'mode': 'json',
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

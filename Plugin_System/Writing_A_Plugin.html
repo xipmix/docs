@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Writing A Plugin - Volumio Documentation</title>
+    <meta name="description" content="The Audiophile Music Player" />
+    <meta name="author" content="Michelangelo Guarise">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme.min.css' rel='stylesheet' type='text/css'><link href='../themes/daux/css/volumiodocs.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<div class="container-fluid fluid-height wrapper">
+    <div class="navbar navbar-static-top hidden-print">
+        <div class="container-fluid">
+            <a class="brand navbar-brand pull-left" href="../index.html">Volumio Documentation</a>
+
+    <div class="navbar-right navbar-form search">
+        <i class="glyphicon glyphicon-search search__icon">&nbsp;</i>
+        <input type="search" id="tipue_search_input" class="form-control search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+        </div>
+    </div>
+    <div class="row columns content">
+        <div class="left-column article-tree col-sm-3 hidden-print">
+            <!-- For Mobile -->
+            <div class="responsive-collapse">
+                <button type="button" class="btn btn-sidebar" id="menu-spinner-button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="sub-nav-collapse" class="sub-nav-collapse">
+                <!-- Navigation -->
+                <ul class='nav nav-list'><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>User Manual</a><ul class='nav nav-list'><li class=''><a href="../User_Manual/Quick_Start_Guide.html">Quick Start Guide</a></li><li class=''><a href="../User_Manual/System_updates.html">System updates</a></li><li class=''><a href="../User_Manual/Volume_Control_and_audio_quality.html">Volume Control and audio quality</a></li><li class=''><a href="../User_Manual/Configure_MPD_Clients_for_albumart.html">Configure MPD Clients for albumart</a></li><li class=''><a href="../User_Manual/Sending_logs_for_troubleshooting.html">Sending logs for troubleshooting</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Development How To</a><ul class='nav nav-list'><li class=''><a href="../Development_How_To/Overview.html">Overview</a></li><li class=''><a href="../Development_How_To/System_Architecture.html">System Architecture</a></li><li class=''><a href="../Development_How_To/Set_up_a_development_environment.html">Set up a development environment</a></li><li class=''><a href="../Development_How_To/Debugging.html">Debugging</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>API</a><ul class='nav nav-list'><li class=''><a href="../API/API_Overview.html">API Overview</a></li><li class=''><a href="../API/WebSocket_APIs.html">WebSocket APIs</a></li><li class=''><a href="../API/UI_Configuration_Pages.html">UI Configuration Pages</a></li><li class=''><a href="../API/REST_API.html">REST API</a></li></ul></li><li class='open has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Plugin System</a><ul class='nav nav-list'><li class=''><a href="../Plugin_System/Plugin_System_Overview.html">Plugin System Overview</a></li><li class='active'><a href="../Plugin_System/Writing_A_Plugin.html">Writing A Plugin</a></li><li class=''><a href="../Plugin_System/Index.js.html">Index.js</a></li><li class=''><a href="../Plugin_System/UI_Configuration_Pages.html">UI Configuration Pages</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>I2S DACs</a><ul class='nav nav-list'><li class=''><a href="../I2S_DACs/Adding_Compatibility_to_your_DAC.html">Adding Compatibility to your DAC</a></li></ul></li><li class=' has-children'><a href="#" class="aj-nav folder"><i class="arrow">&nbsp;</i>Good to Knows</a><ul class='nav nav-list'><li class=''><a href="../Good_to_Knows/Markdown_Cheatsheet.html">Markdown Cheatsheet</a></li><li class=''><a href="../Good_to_Knows/Mounting_an_NFS_Share.html">Mounting an NFS Share</a></li><li class=''><a href="../Good_to_Knows/Contribute_to_this_Doc.html">Contribute to this Doc</a></li><li class=''><a href="../Good_to_Knows/Connection_Outside_LAN.html">Connection Outside LAN</a></li><li class=''><a href="../Good_to_Knows/Command_Line_Client.html">Command Line Client</a></li></ul></li></ul>
+
+                <div class="sidebar-links">
+                    
+                        <!-- Links -->
+                        <a href="https://volumio.org" target="_blank">Home</a><br><a href="https://volumio.org/get-started" target="_blank">Download</a><br><a href="https://volumio.org/forum" target="_blank">Forum</a><br><a href="https://gitter.im/volumio/Volumio2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">Live Chat</a><br><a href="https://github.com/volumio" target="_blank">GitHub Repo</a><br><a href="https://volumio.github.io/docs/Good_to_Knows/Contribute_to_this_Doc.html" target="_blank">Improve this documentation</a><br>
+                        <div id="toggleCodeBlock">
+                                                    <a id="toggleCodeBlockBtn" href="#" onclick="toggleCodeBlocks();">Show Code Blocks Inline</a><br>
+                                                </div>
+
+                        <!-- Twitter -->
+                                                    <div class="twitter">
+                                <hr/>
+                                <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=volumio&amp;show_count=false"></iframe>
+                            </div>
+                        
+                        <hr/>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-column  content-area col-sm-9">
+
+            <div class="content-page">
+                                    <div id="tipue_search_content" style="display:none"></div>
+                
+                <div class="doc_content">
+                    <article>
+            <div class="page-header">
+            <h1>Writing A Plugin</h1>
+        </div>
+    
+    <h2 id="page_The_Plugin_Zip_File">The Plugin Zip File</h2>
+<p>The  plugin zip file will be created as the last step of the plugin creation and it must contains :</p>
+<h3 id="page_Mandatory_Files">Mandatory Files</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>install.sh</td>
+<td>Bash script</td>
+<td>this file contains a script of action and dependencies installation needed for the plugin. It’s a BASH script. It MUST be executable.</td>
+</tr>
+<tr>
+<td>index.js</td>
+<td>javascript</td>
+<td>this is main file, written in node.js</td>
+</tr>
+<tr>
+<td>node_modules</td>
+<td>folder</td>
+<td>folder that contains all node modules needed</td>
+</tr>
+<tr>
+<td>config.json</td>
+<td>json</td>
+<td>this file contains all the parameters to be save for the plugin.</td>
+</tr>
+<tr>
+<td>Package.json</td>
+<td>json</td>
+<td>this file contains description of the plugin and the list of required node dependencies</td>
+</tr>
+<tr>
+<td>Uninstall.sh</td>
+<td>Bash script</td>
+<td>this file contains the script to remove the plugin.</td>
+</tr>
+</tbody>
+</table>
+<p>Details and examples of mandatories files.
+Here you will find more details for each files listed above, what they contain, how to write a working plugin. Examples based on Spop plugin.</p>
+<h4 id="page_Installsh">Install.sh</h4>
+<p>This file allows download and installation of dependencies for the plugin. It’s a executable file written in BASH.</p>
+<pre><code class="language-bash">#!/bin/bash
+
+echo &quot;Installing Spop Dependencies&quot;
+sudo apt-get update
+sudo apt-get -y install libasound2-dev libreadline-dev libsox-dev libsoup2.4-dev libsoup2.4-1 libdbus-glib-1-dev libnotify-dev --no-install-recommends
+
+
+
+echo &quot;Installing Spop and libspotify&quot;
+
+DPKG_ARCH=`dpkg --print-architecture`
+
+echo $DPKG_ARCH
+cd /tmp
+wget http://repo.volumio.org/Packages/Spop/spop-${DPKG_ARCH}.tar.gz
+sudo tar xvf /tmp/spop-${DPKG_ARCH}.tar.gz -C /
+rm /tmp/spop-${DPKG_ARCH}.tar.gz
+
+
+sudo chmod 777 /etc/spopd.conf
+
+#required to end the plugin install
+echo &quot;plugininstallend&quot;
+
+</code></pre>
+<p>IMPORTANT THINGS  TO NOTICE</p>
+<ul>
+<li>Use &quot;echo&quot; to detail what's going during the install, this will help you debugging, and notify the user what goes on during install</li>
+<li>Since we are installing compiled binaries (that need to be compiled for both x86 and armhf, using <code>dpkg --print-architecture</code> as part of the file name will ensure an architecture-agnostic script)</li>
+<li>For security reasons dpkg is not allowed, so if you need to install binaries, tar them and download the tar accordingly</li>
+<li>We have no environment variable set, so make sure you cd in the desired folder</li>
+<li>Ensure to give proper permissions to file you'll need to edit later on (node runs with user volumio)</li>
+<li>To avoid installing unwanted stuff, make sure to place <code>--no-install-recommends</code> after your to-install list</li>
+<li>
+<code>echo &quot;plugininstallend&quot;</code> must be placed at the end of the install script to signal that installation has ended.</li>
+</ul>
+<h4 id="page_Indexjs">Index.js</h4>
+<p>Index.js
+This file is the main file of the plugin. It is written in javascript. Please refer to <a href="../Plugin_System/Index.js">index.js section</a>  for a detailed explanation.</p>
+<h5 id="page_configjson">config.json</h5>
+<p>File in which is saved default parameters, and the way saved parameters will be saved.</p>
+<pre><code class="language-json">{
+  &quot;enabled&quot;: {
+    &quot;type&quot;: &quot;boolean&quot;,
+    &quot;value&quot;: false
+  },
+  &quot;username&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;value&quot;: &quot;&quot;
+  },
+  &quot;password&quot;: {
+    &quot;type&quot;: &quot;string&quot;,
+    &quot;value&quot;: &quot;&quot;
+  },
+  &quot;bitrate&quot;: {
+    &quot;type&quot;: &quot;boolean&quot;,
+    &quot;value&quot;: true
+  }
+}
+</code></pre>
+<h4 id="page_packagejson">package.json</h4>
+<p>This file contains package description and dependencies</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;spop&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;Spotify plugin for Volumio2&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;volumio_info&quot;: {
+    &quot;prettyName&quot;: &quot;Spotify&quot;,
+    &quot;icon&quot;: &quot;fa-spotify&quot;,
+    &quot;plugin_type&quot;: &quot;music_service&quot;,
+    &quot;boot_priority&quot;:1
+  },
+  &quot;dependencies&quot;: {
+    &quot;fast.js&quot;: &quot;^0.1.1&quot;,
+    &quot;fs-extra&quot;: &quot;^0.28.0&quot;,
+    &quot;kew&quot;: &quot;^0.7.0&quot;,
+    &quot;net&quot;: &quot;^1.0.2&quot;,
+    &quot;nodetools&quot;: &quot;^1.0.0&quot;,
+    &quot;spotify-web-api-node&quot;: &quot;^2.3.0&quot;,
+    &quot;v-conf&quot;: &quot;^0.10.0&quot;
+  }
+}
+</code></pre>
+<p>IMPORTANT THINGS  TO NOTICE</p>
+<p>The relevant parts are:</p>
+<ul>
+<li>name: this will be the plugin's name folder</li>
+<li>licence: use any licence, you're not bound to GPL here</li>
+<li>dependencies: indicate the node modules this plugin requres, to avoid yourself the extra hassle of 2 different zip files for x86 and ARM, try to choose node modules that don't need to be compiled or rely on external dependencies</li>
+<li>make sure to indicate propery the pretty name, icon and plugin type. The more straightforward, the better</li>
+<li>version, this is used to keep track of version and request for updates if new versions are found</li>
+<li>boot priority, accepts a numerical value from 1 to 10. Useful if you need to start your plugin after one another. 1 means it is started first, 10 means it will be started at last.</li>
+</ul>
+<h4 id="page_Uninstallsh">Uninstall.sh</h4>
+<p>Bash file. As install file MUST be executable. Here you will basically revert what you did in the install.sh file .</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i18n</td>
+<td>folder</td>
+<td>contains string_en.json and other strings to translate the plugin</td>
+</tr>
+<tr>
+<td>Uiconfig.json</td>
+<td>json</td>
+<td>this file describe the UI of the plugin.</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Text, image, sound, script, executable...</td>
+<td>required file / script to use in the plugin such as executable or service,image, sound,  application key...</td>
+</tr>
+<tr>
+<td>RequiredConf.json</td>
+<td>json</td>
+<td>Configuration key or variables mandatory for the plugin to work. Useful to add a new parameter with an update</td>
+</tr>
+</tbody>
+</table>
+<p>Details and examples of optional files
+Depending on the plugin, other file may be nedeed.</p>
+<h4 id="page_Uiconfigjson">Uiconfig.json</h4>
+<p>This file describes the user interface for the plugin configuration, that will appear while clicking on the cog.</p>
+<p>Please refer to UI Configuration Pages for reference.</p>
+<h4 id="page_I18n">I18n</h4>
+<p>This folder contains languages strings if you want to translate your plugin</p>
+<p>You have to have one file per language.</p>
+<p>The file naming is “strings_en.json” for english.</p>
+<p>Of course replace “en” by the language to be translated “it”, “fr”, “es”.</p>
+<p>This is a json file.</p>
+<pre><code class="language-json">{
+  &quot;spotify_username&quot;:&quot;Spotify username&quot;,
+  &quot;spotify_password&quot;:&quot;Spotify password&quot;,
+  &quot;high_bitrate&quot;:&quot;High quality&quot;,
+  &quot;search_results&quot;:&quot;Number of results&quot;,
+  &quot;plugins&quot;:&quot;Last.fm&quot;,
+  &quot;last_fm_username&quot;:&quot;Last.fm username&quot;,
+  &quot;last_fm_password&quot;:&quot;Last.fm password&quot;,
+  &quot;SEARCH_SONGS_SECTION&quot;:&quot;Spotify songs&quot;,
+  &quot;SEARCH_ALBUMS_SECTION&quot;:&quot;Spotity albums&quot;,
+  &quot;SEARCH_ARTISTS_SECTION&quot;:&quot;Spotify artists&quot;
+
+}
+</code></pre>
+<h4 id="page_Other">Other</h4>
+<p>Your plugin may require other files such as image, sound, executable, configuration files etc… You have to include these files in the ZIP file and ensure proper permissions if they'll need to be edited.</p>
+
+        <nav>
+        <ul class="pager">
+            <li><a href="../Plugin_System/Plugin_System_Overview.html">Previous</a></li>            <li><a href="../Plugin_System/Index.js.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46374275-1', '');
+    ga('send', 'pageview');
+</script>
+
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch_set.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.min.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(document).ready(function() {
+                $('#tipue_search_input').tipuesearch({
+                    'show': 10,
+                    'mode': 'json',
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>
